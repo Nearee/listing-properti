@@ -2,13 +2,25 @@
 <?php $this->section('content') ?>
 
 <section class="section">
-    <!-- Notifikasi Sukses/Error -->
-    <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible show fade">
-            <?= session()->getFlashdata('success') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+            <div id="liveToast" class="toast shadow-lg border-start border-success border-5" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-white">
+                    <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <rect width="100%" height="100%" fill="#28a745"></rect>
+                    </svg>
+                    <strong class="me-auto text-dark">Berhasil</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-dark">
+                        <?= session()->getFlashdata('success') ?>
+                </div>
+            </div>
         </div>
-    <?php endif; ?>
+        <script src="<?= base_url('assets/js/notifikasi.js') ?>"></script>
+        <?php endif; ?>
 
     <div class="card">
         <div class="card-header">
@@ -29,7 +41,7 @@
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($pesan as $item) : ?>
+                        foreach ($pesan as $item): ?>
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= date('d M Y, H:i', strtotime($item['created_at'])) ?></td>
@@ -41,29 +53,32 @@
                                     <strong><?= esc($item['subjek']) ?></strong>
                                 </td>
                                 <td>
-                                    <!-- Tombol Detail -->
-                                    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#detailModal<?= $item['id'] ?>">
+                                    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
+                                        data-bs-target="#detailModal<?= $item['id'] ?>">
                                         <i class="bi bi-eye"></i> Detail
                                     </button>
 
-                                    <!-- Tombol Hapus -->
-                                    <form action="<?= base_url('admin/pesan/delete/' . $item['id']) ?>" method="post" class="d-inline">
+                                    <form action="<?= base_url('admin/pesan/delete/' . $item['id']) ?>" method="post"
+                                        class="d-inline">
                                         <?= csrf_field() ?>
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus pesan ini?')">
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Yakin ingin menghapus pesan ini?')">
                                             <i class="bi bi-trash"></i> Hapus
                                         </button>
                                     </form>
                                 </td>
                             </tr>
 
-                            <!-- MODAL DETAIL PESAN -->
-                            <div class="modal fade" id="detailModal<?= $item['id'] ?>" tabindex="-1" aria-labelledby="detailModalLabel<?= $item['id'] ?>" aria-hidden="true">
+                            <div class="modal fade" id="detailModal<?= $item['id'] ?>" tabindex="-1"
+                                aria-labelledby="detailModalLabel<?= $item['id'] ?>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="detailModalLabel<?= $item['id'] ?>">Detail Pesan</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="detailModalLabel<?= $item['id'] ?>">Detail Pesan
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="mb-3">
@@ -86,12 +101,12 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END MODAL DETAIL -->
                         <?php endforeach; ?>
 
                         <?php if (empty($pesan)): ?>

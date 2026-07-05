@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Utama</li>
@@ -26,32 +26,36 @@
 
                 <li class="sidebar-title">Manajemen Listing</li>
 
-                <li class="sidebar-item has-sub <?= url_is('/lokasi*') || url_is('/blok*') || url_is('/properti*') ? 'active' : '' ?>">
+                <li
+                    class="sidebar-item has-sub <?= url_is('/lokasi*') || url_is('/blok*') || url_is('/properti*') ? 'active' : '' ?>">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-house-door-fill"></i>
                         <span>Katalog Properti</span>
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item <?= url_is('/lokasi*') ? 'active' : '' ?>">
-                            <a href="<?= base_url('/lokasi') ?>" class="submenu-link"><i class="bi bi-geo-alt-fill me-2"></i>Data Lokasi</a>
+                            <a href="<?= base_url('/lokasi') ?>" class="submenu-link"><i
+                                    class="bi bi-geo-alt-fill me-2"></i>Data Lokasi</a>
                         </li>
                         <li class="submenu-item <?= url_is('/blok*') ? 'active' : '' ?>">
-                            <a href="<?= base_url('/blok') ?>" class="submenu-link"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Data Blok</a>
+                            <a href="<?= base_url('/blok') ?>" class="submenu-link"><i
+                                    class="bi bi-grid-3x3-gap-fill me-2"></i>Data Blok</a>
                         </li>
                         <li class="submenu-item <?= url_is('/properti*') ? 'active' : '' ?>">
-                            <a href="<?= base_url('/properti') ?>" class="submenu-link"><i class="bi bi-houses-fill me-2"></i>Unit Rumah</a>
+                            <a href="<?= base_url('/properti') ?>" class="submenu-link"><i
+                                    class="bi bi-houses-fill me-2"></i>Unit Rumah</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-title">Konten & Marketing</li>
 
-                <!-- <li class="sidebar-item <?= url_is('admin/layanan*') ? 'active' : '' ?>">
+                <li class="sidebar-item <?= url_is('admin/layanan*') ? 'active' : '' ?>">
                     <a href="<?= base_url('admin/layanan') ?>" class='sidebar-link'>
                         <i class="bi bi-briefcase-fill"></i>
                         <span>Layanan Kami</span>
                     </a>
-                </li> -->
+                </li>
 
                 <li class="sidebar-item <?= url_is('admin/galeri*') ? 'active' : '' ?>">
                     <a href="<?= base_url('admin/galeri') ?>" class='sidebar-link'>

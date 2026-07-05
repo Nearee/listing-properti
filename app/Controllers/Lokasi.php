@@ -17,7 +17,7 @@ class Lokasi extends BaseController
     public function index()
     {
         $data = [
-            'title'  => 'Daftar Lokasi',
+            'title' => 'Daftar Lokasi',
             'lokasi' => $this->lokasiModel->findAll()
         ];
 
@@ -36,16 +36,16 @@ class Lokasi extends BaseController
     public function store()
     {
         $rules = [
-            'nama_lokasi'    => 'required|min_length[3]|max_length[100]',
+            'nama_lokasi' => 'required|min_length[3]|max_length[100]',
             'alamat_lengkap' => 'required',
-            'link_gmaps'     => 'required|valid_url'
+            'link_gmaps' => 'required'
         ];
 
         // JIKA VALIDASI GAGAL: Jangan pakai redirect()->back(). 
         // Render langsung view index beserta data lokasi dan errors-nya agar tidak undefined.
         if (!$this->validate($rules)) {
             $data = [
-                'title'  => 'Daftar Lokasi',
+                'title' => 'Daftar Lokasi',
                 'lokasi' => $this->lokasiModel->findAll(),
                 'errors' => $this->validator->getErrors()
             ];
@@ -56,9 +56,9 @@ class Lokasi extends BaseController
 
         // Jika validasi berhasil
         $this->lokasiModel->save([
-            'nama_lokasi'    => $this->request->getPost('nama_lokasi'),
+            'nama_lokasi' => $this->request->getPost('nama_lokasi'),
             'alamat_lengkap' => $this->request->getPost('alamat_lengkap'),
-            'link_gmaps'     => $this->request->getPost('link_gmaps')
+            'link_gmaps' => $this->request->getPost('link_gmaps')
         ]);
 
         return redirect()->to('/lokasi')->with('success', 'Data lokasi berhasil ditambahkan.');
@@ -74,15 +74,15 @@ class Lokasi extends BaseController
     public function update($id = null)
     {
         $rules = [
-            'nama_lokasi'    => 'required|min_length[3]|max_length[100]',
+            'nama_lokasi' => 'required|min_length[3]|max_length[100]',
             'alamat_lengkap' => 'required',
-            'link_gmaps'     => 'required|valid_url'
+            'link_gmaps' => 'required'
         ];
 
         // JIKA VALIDASI GAGAL: Render langsung view index dengan melemparkan ulang data lokasi
         if (!$this->validate($rules)) {
             $data = [
-                'title'  => 'Daftar Lokasi',
+                'title' => 'Daftar Lokasi',
                 'lokasi' => $this->lokasiModel->findAll(),
                 'errors' => $this->validator->getErrors()
             ];
@@ -92,9 +92,9 @@ class Lokasi extends BaseController
 
         // Update data berdasarkan ID
         $this->lokasiModel->update($id, [
-            'nama_lokasi'    => $this->request->getPost('nama_lokasi'),
+            'nama_lokasi' => $this->request->getPost('nama_lokasi'),
             'alamat_lengkap' => $this->request->getPost('alamat_lengkap'),
-            'link_gmaps'     => $this->request->getPost('link_gmaps')
+            'link_gmaps' => $this->request->getPost('link_gmaps')
         ]);
 
         return redirect()->to('/lokasi')->with('success', 'Data lokasi berhasil diperbarui.');

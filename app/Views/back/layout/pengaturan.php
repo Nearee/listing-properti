@@ -20,19 +20,20 @@
                         <h4 class="card-title"><i class="bi bi-palette-fill me-2 text-primary"></i>Mode Tampilan</h4>
                     </div>
                     <div class="card-body">
-                        <p>Pilih mode gelap jika Anda bekerja di ruangan yang minim cahaya untuk mengurangi ketegangan pada mata.</p>
-
+                        <p>Pilih mode gelap jika Anda bekerja di ruangan yang minim cahaya untuk mengurangi ketegangan
+                            pada mata.</p>
                         <div class="d-flex align-items-center justify-content-between p-3 border rounded">
                             <div class="d-flex align-items-center gap-3">
-                                <!-- <i class="bi bi-moon-stars-fill fs-4 text-secondary" id="theme-icon-status"></i> -->
                                 <div>
                                     <h6 class="mb-0">Mode Gelap (Dark Mode)</h6>
-                                    <small class="text-muted" id="theme-text-status">Mengaktifkan tema gelap sistem</small>
+                                    <small class="text-muted" id="theme-text-status">Mengaktifkan tema gelap
+                                        sistem</small>
                                 </div>
                             </div>
 
                             <div class="form-check form-switch fs-4 mb-0">
-                                <input class="form-check-input" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                <input class="form-check-input" type="checkbox" id="toggle-dark"
+                                    style="cursor: pointer">
                                 <label class="form-check-label"></label>
                             </div>
                         </div>

@@ -1,23 +1,15 @@
 <?= $this->extend('front/index') ?>
 <?= $this->section('content') ?>
 
-<div
-    class="hero page-inner overlay"
-    style="background-image: url('<?= base_url('assets/images/hero_bg_1.jpg') ?>')">
+<div class="hero page-inner overlay" style="background-image: url('<?= base_url('assets/images/hero_bg_1.jpg') ?>')">
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-9 text-center mt-5">
                 <h1 class="heading" data-aos="fade-up">Services</h1>
-
-                <nav
-                    aria-label="breadcrumb"
-                    data-aos="fade-up"
-                    data-aos-delay="200">
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
                     <ol class="breadcrumb text-center justify-content-center">
                         <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Home</a></li>
-                        <li
-                            class="breadcrumb-item active text-white-50"
-                            aria-current="page">
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">
                             Services
                         </li>
                     </ol>
@@ -30,103 +22,30 @@
 <div class="section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house mb-4 d-block"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">
-                        Quality Properties
-                    </h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
+            <?php if (!empty($layanan)): ?>
+                <?php $delay = 300; ?>
+                <?php foreach ($layanan as $item): ?>
+                    <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                        <div class="box-feature mb-4">
+                            <span class="<?= esc($item['icon_class']) ?> mb-4 d-block"></span>
+                            <h3 class="text-black mb-3 font-weight-bold">
+                                <?= esc($item['judul']) ?>
+                            </h3>
+                            <p class="text-black-50">
+                                <?= esc($item['deskripsi']) ?>
+                            </p>
+                            <?php if (!empty($item['link_url'])): ?>
+                                <p><a href="<?= esc($item['link_url']) ?>" class="learn-more">Read more</a></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php $delay += 100; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="col-12 text-center">
+                    <p>Belum ada layanan yang ditambahkan.</p>
                 </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house-2 mb-4 d-block-3"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">Top Rated Agent</h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-building mb-4 d-block"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">
-                        Property for Sale
-                    </h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house-3 mb-4 d-block-1"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">House for Sale</h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house-4 mb-4 d-block"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">
-                        Quality Properties
-                    </h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-building mb-4 d-block-3"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">Top Rated Agent</h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house mb-4 d-block"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">
-                        Property for Sale
-                    </h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-                <div class="box-feature mb-4">
-                    <span class="flaticon-house-1 mb-4 d-block-1"></span>
-                    <h3 class="text-black mb-3 font-weight-bold">House for Sale</h3>
-                    <p class="text-black-50">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p><a href="#" class="learn-more">Read more</a></p>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
@@ -153,109 +72,32 @@
         </div>
         <div class="testimonial-slider-wrap">
             <div class="testimonial-slider">
-                <div class="item">
-                    <div class="testimonial">
-                        <img
-                            src="<?= base_url('assets/images/person_1-min.jpg') ?>"
-                            alt="Image"
-                            class="img-fluid rounded-circle w-25 mb-4" />
-                        <div class="rate">
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
+                <?php if (!empty($ulasan)): ?>
+                    <?php foreach ($ulasan as $item): ?>
+                        <div class="item">
+                            <div class="testimonial">
+                                <img src="<?= base_url('assets/images/pp.png') ?>" alt="Image"
+                                    class="img-fluid rounded-circle w-25 mb-4" />
+                                <div class="rate">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <span class="icon-star <?= $i <= $item['rating'] ? 'text-warning' : 'text-muted' ?>"></span>
+                                    <?php endfor; ?>
+                                </div>
+                                <h3 class="h5 text-primary mb-4"><?= esc($item['nama_klien']) ?></h3>
+                                <blockquote>
+                                    <p>
+                                        &ldquo;<?= esc($item['komentar']) ?>&rdquo;
+                                    </p>
+                                </blockquote>
+                                <p class="text-black-50">Customer</p>
+                            </div>
                         </div>
-                        <h3 class="h5 text-primary mb-4">James Smith</h3>
-                        <blockquote>
-                            <p>
-                                &ldquo;Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind
-                                texts. Separated they live in Bookmarksgrove right at the
-                                coast of the Semantics, a large language ocean.&rdquo;
-                            </p>
-                        </blockquote>
-                        <p class="text-black-50">Designer, Co-founder</p>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="item">
+                        <p class="text-center">Belum ada ulasan.</p>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="testimonial">
-                        <img
-                            src="<?= base_url('assets/images/person_2-min.jpg') ?>"
-                            alt="Image"
-                            class="img-fluid rounded-circle w-25 mb-4" />
-                        <div class="rate">
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                        </div>
-                        <h3 class="h5 text-primary mb-4">Mike Houston</h3>
-                        <blockquote>
-                            <p>
-                                &ldquo;Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind
-                                texts. Separated they live in Bookmarksgrove right at the
-                                coast of the Semantics, a large language ocean.&rdquo;
-                            </p>
-                        </blockquote>
-                        <p class="text-black-50">Designer, Co-founder</p>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="testimonial">
-                        <img
-                            src="<?= base_url('assets/images/person_3-min.jpg') ?>"
-                            alt="Image"
-                            class="img-fluid rounded-circle w-25 mb-4" />
-                        <div class="rate">
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                        </div>
-                        <h3 class="h5 text-primary mb-4">Cameron Webster</h3>
-                        <blockquote>
-                            <p>
-                                &ldquo;Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind
-                                texts. Separated they live in Bookmarksgrove right at the
-                                coast of the Semantics, a large language ocean.&rdquo;
-                            </p>
-                        </blockquote>
-                        <p class="text-black-50">Designer, Co-founder</p>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="testimonial">
-                        <img
-                            src="<?= base_url('assets/images/person_4-min.jpg') ?>"
-                            alt="Image"
-                            class="img-fluid rounded-circle w-25 mb-4" />
-                        <div class="rate">
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                            <span class="icon-star text-warning"></span>
-                        </div>
-                        <h3 class="h5 text-primary mb-4">Dave Smith</h3>
-                        <blockquote>
-                            <p>
-                                &ldquo;Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind
-                                texts. Separated they live in Bookmarksgrove right at the
-                                coast of the Semantics, a large language ocean.&rdquo;
-                            </p>
-                        </blockquote>
-                        <p class="text-black-50">Designer, Co-founder</p>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

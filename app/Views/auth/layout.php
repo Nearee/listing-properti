@@ -373,7 +373,6 @@
         </div>
     </div>
 
-
     <div class="toast" id="toast"></div>
 
     <script>

@@ -8,10 +8,8 @@
 
 <div class="page-content">
     <section class="row">
-        <!-- WIDGET KARTU STATISTIK -->
         <div class="col-12 col-lg-12">
             <div class="row">
-                <!-- Total Properti -->
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
@@ -29,7 +27,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Total Pesan Masuk -->
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
@@ -47,7 +44,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Total Lokasi -->
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
@@ -65,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Total Testimoni -->
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
@@ -85,14 +80,13 @@
                 </div>
             </div>
 
-            <!-- TABEL DATA TERBARU -->
             <div class="row">
-                <!-- Tabel Pesan Masuk Terbaru -->
                 <div class="col-12 col-xl-6">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">5 Pesan Masuk Terbaru</h5>
-                            <a href="<?= base_url('admin/pesan') ?>" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+                            <a href="<?= base_url('admin/pesan') ?>" class="btn btn-sm btn-outline-primary">Lihat
+                                Semua</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -127,12 +121,12 @@
                     </div>
                 </div>
 
-                <!-- Tabel Properti Terbaru -->
                 <div class="col-12 col-xl-6">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">5 Properti Terbaru</h5>
-                            <a href="<?= base_url('/properti') ?>" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+                            <a href="<?= base_url('/properti') ?>" class="btn btn-sm btn-outline-primary">Lihat
+                                Semua</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -153,9 +147,12 @@
                                             <?php foreach ($properti_terbaru as $prop): ?>
                                                 <tr>
                                                     <td class="text-bold-500"><?= esc($prop['nama_properti']) ?></td>
-                                                    <td class="text-success fw-bold">Rp <?= number_format($prop['harga'], 0, ',', '.') ?></td>
+                                                    <td class="text-success fw-bold">Rp
+                                                        <?= number_format($prop['harga'], 0, ',', '.') ?>
+                                                    </td>
                                                     <td>
-                                                        <span class="badge bg-light-primary"><?= esc($prop['kategori_tampil']) ?></span>
+                                                        <span
+                                                            class="badge bg-light-primary"><?= esc($prop['kategori_tampil']) ?></span>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -168,13 +165,13 @@
                 </div>
             </div>
 
-            <!-- TABEL ULASAN TERBARU -->
             <div class="row mt-2">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">5 Ulasan Pengguna Terbaru</h5>
-                            <a href="<?= base_url('admin/ulasan') ?>" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+                            <a href="<?= base_url('admin/ulasan') ?>" class="btn btn-sm btn-outline-primary">Lihat
+                                Semua</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -209,9 +206,9 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <?php if (isset($u['status']) && $u['status'] == 'approved') : ?>
+                                                        <?php if (isset($u['status']) && $u['status'] == 'approved'): ?>
                                                             <span class="badge bg-light-success">Ditayangkan</span>
-                                                        <?php else : ?>
+                                                        <?php else: ?>
                                                             <span class="badge bg-light-warning">Menunggu</span>
                                                         <?php endif; ?>
                                                     </td>
@@ -225,7 +222,6 @@
                     </div>
                 </div>
             </div>
-            <!-- AKHIR TABEL ULASAN TERBARU -->
 
         </div>
     </section>

@@ -27,7 +27,12 @@ $routes->get('/logout', 'AuthController::logout');
 // Rute Admin
 $routes->group('', ['filter' => 'role:admin'], function ($routes) {
     $routes->get('/dashboard', 'DashboardController::Dashboard');
-    $routes->get('/admin/layanan', 'DashboardController::Layanan');
+
+    // Rute untuk Layanan
+    $routes->get('/admin/layanan', 'LayananController::index');
+    $routes->post('/admin/layanan/store', 'LayananController::store');
+    $routes->post('/admin/layanan/update/(:num)', 'LayananController::update/$1');
+    $routes->post('/admin/layanan/delete/(:num)', 'LayananController::delete/$1');
 
     // Rute untuk Profil Perusahaan
     $routes->get('/profilperusahaan', 'ProfilPerusahaan::index');

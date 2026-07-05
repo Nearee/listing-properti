@@ -32,8 +32,7 @@
       <span class="btn-text">Masuk Sekarang</span>
     </button>
 
-    <!-- Kembali -->
-    <div class="switch-link">
+        <div class="switch-link">
       <a href="<?= base_url('/') ?>">Kembali ke Beranda</a>
     </div>
   </form>

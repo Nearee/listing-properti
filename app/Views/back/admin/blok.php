@@ -2,16 +2,27 @@
 <?= $this->section('content') ?>
 
 <section class="section">
-    <!-- Notifikasi Sukses -->
-    <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible show fade">
-            <?= session()->getFlashdata('success') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <?php if (session()->getFlashdata('success')) : ?>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        <div id="liveToast" class="toast shadow-lg border-start border-success border-5" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header bg-white">
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#28a745"></rect>
+                </svg>
+                <strong class="me-auto text-dark">Berhasil</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-dark">
+                <?= session()->getFlashdata('success') ?>
+            </div>
         </div>
-    <?php endif; ?>
+    </div>
+    <script src="<?= base_url('assets/js/notifikasi.js') ?>"></script>
+<?php endif; ?>
 
-    <!-- Notifikasi Error Validasi -->
-    <?php if (session()->getFlashdata('errors')) : ?>
+        <?php if (session()->getFlashdata('errors')) : ?>
         <div class="alert alert-danger alert-dismissible show fade">
             <ul class="mb-0">
                 <?php foreach (session()->getFlashdata('errors') as $error) : ?>
@@ -45,17 +56,14 @@
                         foreach ($blok as $item) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <!-- Mengambil kolom dari hasil Join -->
-                                <td><?= esc($item['nama_lokasi']) ?></td>
+                                                                <td><?= esc($item['nama_lokasi']) ?></td>
                                 <td><?= esc($item['nama_blok']) ?></td>
                                 <td>
-                                    <!-- Tombol Edit Modal -->
-                                    <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $item['id'] ?>">
+                                                                        <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $item['id'] ?>">
                                         Edit
                                     </button>
 
-                                    <!-- Tombol Hapus -->
-                                    <form action="<?= base_url('blok/delete/' . $item['id']) ?>" method="post" class="d-inline">
+                                                                        <form action="<?= base_url('blok/delete/' . $item['id']) ?>" method="post" class="d-inline">
                                         <?= csrf_field() ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data blok ini?')">Hapus</button>
@@ -63,8 +71,7 @@
                                 </td>
                             </tr>
 
-                            <!-- MODAL EDIT DATA (Berada di dalam perulangan) -->
-                            <div class="modal fade" id="editModal<?= $item['id'] ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $item['id'] ?>" aria-hidden="true">
+                                                        <div class="modal fade" id="editModal<?= $item['id'] ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $item['id'] ?>" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -80,8 +87,7 @@
                                                     <select name="lokasi_id" class="form-select" required>
                                                         <option value="">-- Pilih Lokasi --</option>
                                                         <?php foreach ($lokasi as $loc) : ?>
-                                                            <!-- Memberi atribut selected jika ID lokasi sama dengan lokasi_id pada blok -->
-                                                            <option value="<?= $loc['id'] ?>" <?= ($item['lokasi_id'] == $loc['id']) ? 'selected' : '' ?>>
+                                                                                                                        <option value="<?= $loc['id'] ?>" <?= ($item['lokasi_id'] == $loc['id']) ? 'selected' : '' ?>>
                                                                 <?= esc($loc['nama_lokasi']) ?>
                                                             </option>
                                                         <?php endforeach; ?>
@@ -102,8 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Akhir Modal Edit -->
-
+                            
                         <?php endforeach; ?>
 
                         <?php if (empty($blok)): ?>
@@ -118,7 +123,6 @@
     </div>
 </section>
 
-<!-- MODAL TAMBAH DATA (Berada di luar tabel) -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

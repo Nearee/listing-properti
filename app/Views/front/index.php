@@ -12,8 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="<?= base_url('assets/fonts/icomoon/style.css') ?>" />
@@ -42,7 +41,7 @@
     <?= $this->include('layout/navbar') ?>
 
     <?= $this->renderSection('content') ?>
-    
+
     <?= $this->include('layout/footer') ?>
 
     <div id="overlayer"></div>
@@ -60,20 +59,15 @@
     <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.getElementById('searchInput');
             const searchForm = document.querySelector('.form-search');
-
-            // Fungsi utama pencarian
             function filterProperties() {
                 let filter = searchInput.value.toUpperCase();
-                // Pada template property-1.0.0, pembungkusnya biasanya adalah .property-item
                 let cards = document.querySelectorAll('.property-item');
 
                 cards.forEach(card => {
-                    // Mengambil teks dari judul h3 di dalam card
                     let title = card.querySelector('h3') ? card.querySelector('h3').innerText : "";
-                    // Mengambil teks alamat/lokasi jika ada
                     let location = card.querySelector('.city') ? card.querySelector('.city').innerText : "";
 
                     if (title.toUpperCase().indexOf(filter) > -1 || location.toUpperCase().indexOf(filter) > -1) {
@@ -83,12 +77,8 @@
                     }
                 });
             }
-
-            // Jalankan fungsi setiap kali mengetik (Real-time)
             searchInput.addEventListener('keyup', filterProperties);
-
-            // Mencegah error "Cannot GET /searchForm" saat tombol diklik
-            searchForm.addEventListener('submit', function(e) {
+            searchForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 filterProperties();
             });

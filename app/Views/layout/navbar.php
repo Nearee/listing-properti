@@ -29,26 +29,10 @@
                 </li>
             </ul>
 
-            <!-- <div class="elegant-navbar__actions">
-                <a href="<?= base_url('/contact') ?>" class="elegant-navbar__cta d-none d-lg-inline-flex">
-                    Konsultasi
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-
-                <button type="button" class="elegant-navbar__toggle d-lg-none" id="elegantNavbarToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="elegantNavbarDrawer">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div> -->
-
         </div>
     </div>
 
-    <!-- Mobile drawer -->
-    <div class="elegant-navbar__backdrop" id="elegantNavbarBackdrop"></div>
+        <div class="elegant-navbar__backdrop" id="elegantNavbarBackdrop"></div>
     <aside class="elegant-navbar__drawer" id="elegantNavbarDrawer" aria-hidden="true">
         <div class="elegant-navbar__drawer-head">
             <span class="elegant-navbar__logo-text elegant-navbar__logo-text--dark">
