@@ -110,10 +110,17 @@
                                 : base_url('assets/images/no-image.jpg');
                             $detailUrl = base_url('property-single/' . $p['id']);
                             ?>
+
+                            <?php
+                            $tipe = is_string($tipeRaw) ? strtolower($tipeRaw) : '-';
+                            if ($tipe === 'tidak_ada' || $tipe === '-') {
+                                $tipe = 'properti';
+                            }
+                            ?>
+
                             <a href="<?= $detailUrl ?>" class="pf-card"
                                 data-nama="<?= strtolower(is_string($namaRaw) ? $namaRaw : 'Tanpa Nama') ?>"
-                                data-tipe="<?= strtolower(is_string($tipeRaw) ? $tipeRaw : '-') ?>"
-                                data-kasur="<?= $kamarTdr ?>" data-harga="<?= (int) $hargaRaw ?>">
+                                data-tipe="<?= $tipe ?>" data-kasur="<?= $kamarTdr ?>" data-harga="<?= (int) $hargaRaw ?>">
 
                                 <div class="pf-card-img">
                                     <img src="<?= esc($gambar) ?>" alt="<?= $nama ?>" loading="lazy"

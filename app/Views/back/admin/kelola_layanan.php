@@ -114,10 +114,6 @@
                                                                 <?= $item['icon_class'] == 'flaticon-house' ? 'selected' : '' ?>>🏠 flaticon-house</option>
                                                             <option value="flaticon-house-1"
                                                                 <?= $item['icon_class'] == 'flaticon-house-1' ? 'selected' : '' ?>>🏡 flaticon-house-1</option>
-                                                            <option value="flaticon-camera"
-                                                                <?= $item['icon_class'] == 'flaticon-camera' ? 'selected' : '' ?>>📷 flaticon-camera</option>
-                                                            <option value="flaticon-location"
-                                                                <?= $item['icon_class'] == 'flaticon-location' ? 'selected' : '' ?>>📍 flaticon-location</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-12 mb-3">
