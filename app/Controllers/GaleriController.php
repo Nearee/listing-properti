@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\GaleriModel;
 
-class Galeri extends BaseController
+class GaleriController extends BaseController
 {
     protected $galeriModel;
 
@@ -13,7 +13,6 @@ class Galeri extends BaseController
         $this->galeriModel = new GaleriModel();
     }
 
-    // Menampilkan halaman galeri
     public function index()
     {
         $data = [
@@ -21,7 +20,7 @@ class Galeri extends BaseController
             'galeri' => $this->galeriModel->orderBy('id', 'DESC')->findAll()
         ];
 
-        return view('back/admin/galeri', $data);
+        return view('back/admin/kelola_galeri', $data);
     }
 
     public function store()

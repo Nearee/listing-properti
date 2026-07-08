@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\BlokModel;
-use App\Models\LokasiModel; // Perlu di-load untuk mengambil data lokasi
+use App\Models\LokasiModel;
 
-class Blok extends BaseController
+class BlokController extends BaseController
 {
     protected $blokModel;
     protected $lokasiModel;
@@ -19,12 +19,12 @@ class Blok extends BaseController
     public function index()
     {
         $data = [
-            'title'  => 'Daftar Blok',
-            'blok'   => $this->blokModel->getBlokWithLokasi(),
+            'title' => 'Daftar Blok',
+            'blok' => $this->blokModel->getBlokWithLokasi(),
             'lokasi' => $this->lokasiModel->findAll()
         ];
 
-        return view('back/admin/blok', $data);
+        return view('back/admin/kelola_blok', $data);
     }
 
     public function store()

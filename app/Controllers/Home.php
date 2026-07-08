@@ -86,7 +86,7 @@ class Home extends BaseController
             'lokasi' => $lokasiModel->findAll(),
         ];
 
-        return view('front/contact', $data);
+        return view('front/kontak', $data);
     }
 
     public function kirim()

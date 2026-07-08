@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\LokasiModel;
 
-class Lokasi extends BaseController
+class LokasiController extends BaseController
 {
     protected $lokasiModel;
 
@@ -13,7 +13,6 @@ class Lokasi extends BaseController
         $this->lokasiModel = new LokasiModel();
     }
 
-    // 1. Tampilkan semua data (READ)
     public function index()
     {
         $data = [
@@ -21,18 +20,12 @@ class Lokasi extends BaseController
             'lokasi' => $this->lokasiModel->findAll()
         ];
 
-        // dd($data);
-
-        return view('back/admin/lokasi', $data);
+        return view('back/admin/kelola_lokasi', $data);
     }
-
-    // 2. Karena pakai modal, create() tidak perlu view terpisah, langsung redirect ke index
     public function create()
     {
         return redirect()->to('/lokasi');
     }
-
-    // 3. Simpan data baru (CREATE - Proses Simpan)
     public function store()
     {
         $rules = [
@@ -41,20 +34,15 @@ class Lokasi extends BaseController
             'link_gmaps' => 'required'
         ];
 
-        // JIKA VALIDASI GAGAL: Jangan pakai redirect()->back(). 
-        // Render langsung view index beserta data lokasi dan errors-nya agar tidak undefined.
         if (!$this->validate($rules)) {
             $data = [
                 'title' => 'Daftar Lokasi',
                 'lokasi' => $this->lokasiModel->findAll(),
                 'errors' => $this->validator->getErrors()
             ];
-            // Mengirim flashdata manual agar input lama (old) tetap bisa terbaca
             session()->setFlashdata('errors', $this->validator->getErrors());
-            return view('back/admin/lokasi', $data);
+            return view('back/admin/kelola_lokasi', $data);
         }
-
-        // Jika validasi berhasil
         $this->lokasiModel->save([
             'nama_lokasi' => $this->request->getPost('nama_lokasi'),
             'alamat_lengkap' => $this->request->getPost('alamat_lengkap'),
@@ -64,13 +52,11 @@ class Lokasi extends BaseController
         return redirect()->to('/lokasi')->with('success', 'Data lokasi berhasil ditambahkan.');
     }
 
-    // 4. Karena pakai modal, edit() langsung dilempar kembali ke index
     public function edit($id = null)
     {
         return redirect()->to('/lokasi');
     }
 
-    // 5. Simpan perubahan data (UPDATE - Proses Update)
     public function update($id = null)
     {
         $rules = [
@@ -79,7 +65,6 @@ class Lokasi extends BaseController
             'link_gmaps' => 'required'
         ];
 
-        // JIKA VALIDASI GAGAL: Render langsung view index dengan melemparkan ulang data lokasi
         if (!$this->validate($rules)) {
             $data = [
                 'title' => 'Daftar Lokasi',
@@ -87,10 +72,9 @@ class Lokasi extends BaseController
                 'errors' => $this->validator->getErrors()
             ];
             session()->setFlashdata('errors', $this->validator->getErrors());
-            return view('back/admin/lokasi', $data);
+            return view('back/admin/kelola_lokasi', $data);
         }
 
-        // Update data berdasarkan ID
         $this->lokasiModel->update($id, [
             'nama_lokasi' => $this->request->getPost('nama_lokasi'),
             'alamat_lengkap' => $this->request->getPost('alamat_lengkap'),
@@ -100,7 +84,6 @@ class Lokasi extends BaseController
         return redirect()->to('/lokasi')->with('success', 'Data lokasi berhasil diperbarui.');
     }
 
-    // 6. Hapus data (DELETE)
     public function delete($id = null)
     {
         $lokasi = $this->lokasiModel->find($id);

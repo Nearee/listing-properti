@@ -136,12 +136,6 @@
                                 <i class="icon-room me-2"></i><?= esc($loc['nama_lokasi']) ?>
                             </h5>
                             <p class="text-black-50 mb-3"><?= nl2br(esc($loc['alamat_lengkap'])) ?></p>
-                            <?php if (!empty($loc['link_gmaps'])): ?>
-                                <a href="<?= esc($loc['link_gmaps']) ?>" target="_blank" rel="noopener noreferrer"
-                                    class="btn btn-sm btn-outline-primary">
-                                    <i class="icon-room me-1"></i> Buka di Google Maps
-                                </a>
-                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-lg-8">

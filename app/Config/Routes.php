@@ -35,48 +35,48 @@ $routes->group('', ['filter' => 'role:admin'], function ($routes) {
     $routes->post('/admin/layanan/delete/(:num)', 'LayananController::delete/$1');
 
     // Rute untuk Profil Perusahaan
-    $routes->get('/profilperusahaan', 'ProfilPerusahaan::index');
-    $routes->post('/profilperusahaan/save', 'ProfilPerusahaan::save');
+    $routes->get('/profilperusahaan', 'ProfilPerusahaanController::index');
+    $routes->post('/profilperusahaan/save', 'ProfilPerusahaanController::save');
 
     // Rute untuk Galeri
-    $routes->get('/admin/galeri', 'Galeri::index');
-    $routes->post('/admin/galeri/store', 'Galeri::store');
-    $routes->delete('/admin/galeri/delete/(:num)', 'Galeri::delete/$1');
+    $routes->get('/admin/galeri', 'GaleriController::index');
+    $routes->post('/admin/galeri/store', 'GaleriController::store');
+    $routes->delete('/admin/galeri/delete/(:num)', 'GaleriController::delete/$1');
 
     // Rute untuk Pesan Masuk
-    $routes->get('/admin/pesan', 'PesanMasuk::index');
-    $routes->delete('/admin/pesan/delete/(:num)', 'PesanMasuk::delete/$1');
+    $routes->get('/admin/pesan', 'PesanMasukController::index');
+    $routes->delete('/admin/pesan/delete/(:num)', 'PesanMasukController::delete/$1');
 
     // Rute untuk Ulasan
-    $routes->get('/admin/ulasan', 'AdminUlasan::index');
-    $routes->post('/admin/ulasan/approve/(:num)', 'AdminUlasan::approve/$1');
-    $routes->delete('/admin/ulasan/delete/(:num)', 'AdminUlasan::delete/$1');
+    $routes->get('/admin/ulasan', 'AdminUlasanController::index');
+    $routes->post('/admin/ulasan/approve/(:num)', 'AdminUlasanController::approve/$1');
+    $routes->delete('/admin/ulasan/delete/(:num)', 'AdminUlasanController::delete/$1');
 
     // Rute untuk Lokasi
-    $routes->get('/lokasi', 'Lokasi::index');
-    $routes->get('/lokasi/create', 'Lokasi::create');
-    $routes->post('/lokasi/store', 'Lokasi::store');
-    $routes->get('/lokasi/edit/(:num)', 'Lokasi::edit/$1');
-    $routes->post('/lokasi/update/(:num)', 'Lokasi::update/$1');
-    $routes->delete('/lokasi/delete/(:num)', 'Lokasi::delete/$1');
+    $routes->get('/lokasi', 'LokasiController::index');
+    $routes->get('/lokasi/create', 'LokasiController::create');
+    $routes->post('/lokasi/store', 'LokasiController::store');
+    $routes->get('/lokasi/edit/(:num)', 'LokasiController::edit/$1');
+    $routes->post('/lokasi/update/(:num)', 'LokasiController::update/$1');
+    $routes->delete('/lokasi/delete/(:num)', 'LokasiController::delete/$1');
 
     // Rute untuk Blok
-    $routes->get('/blok', 'Blok::index');
-    $routes->post('/blok/store', 'Blok::store');
-    $routes->post('/blok/update/(:num)', 'Blok::update/$1');
-    $routes->delete('/blok/delete/(:num)', 'Blok::delete/$1');
+    $routes->get('/blok', 'BlokController::index');
+    $routes->post('/blok/store', 'BlokController::store');
+    $routes->post('/blok/update/(:num)', 'BlokController::update/$1');
+    $routes->delete('/blok/delete/(:num)', 'BlokController::delete/$1');
 
     // Rute untuk Anggota Tim
-    $routes->get('/anggota-tim', 'AnggotaTim::index');
-    $routes->post('/anggota-tim/store', 'AnggotaTim::store');
-    $routes->post('/anggota-tim/update/(:num)', 'AnggotaTim::update/$1');
-    $routes->delete('/anggota-tim/delete/(:num)', 'AnggotaTim::delete/$1');
+    $routes->get('/anggota-tim', 'AnggotaTimController::index');
+    $routes->post('/anggota-tim/store', 'AnggotaTimController::store');
+    $routes->post('/anggota-tim/update/(:num)', 'AnggotaTimController::update/$1');
+    $routes->delete('/anggota-tim/delete/(:num)', 'AnggotaTimController::delete/$1');
 
     //Properti Routes
-    $routes->get('/properti', 'Properti::index');
-    $routes->post('/properti/store', 'Properti::store');
-    $routes->post('/properti/update/(:num)', 'Properti::update/$1');
-    $routes->delete('/properti/delete/(:num)', 'Properti::delete/$1');
+    $routes->get('/properti', 'PropertiController::index');
+    $routes->post('/properti/store', 'PropertiController::store');
+    $routes->post('/properti/update/(:num)', 'PropertiController::update/$1');
+    $routes->delete('/properti/delete/(:num)', 'PropertiController::delete/$1');
 });
 
 // Rute Allowed for Admin and User

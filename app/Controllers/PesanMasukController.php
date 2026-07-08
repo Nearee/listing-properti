@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PesanMasukModel;
 
-class PesanMasuk extends BaseController
+class PesanMasukController extends BaseController
 {
     protected $pesanModel;
 
@@ -17,11 +17,10 @@ class PesanMasuk extends BaseController
     {
         $data = [
             'title' => 'Pesan Masuk',
-            // Menampilkan pesan dari yang terbaru
             'pesan' => $this->pesanModel->orderBy('created_at', 'DESC')->findAll()
         ];
 
-        return view('back/admin/pesan_masuk', $data);
+        return view('back/admin/kelola_pesan_masuk', $data);
     }
 
     public function delete($id = null)

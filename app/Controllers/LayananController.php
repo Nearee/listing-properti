@@ -21,7 +21,7 @@ class LayananController extends BaseController
             'layanan' => $this->layananModel->findAll()
         ];
 
-        return view('back/admin/layanan', $data);
+        return view('back/admin/kelola_layanan', $data);
     }
 
     public function store()

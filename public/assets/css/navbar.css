@@ -50,8 +50,8 @@
 .elegant-navbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: space-between; 
+  width: 100%;
 }
 
 /* Logo */
@@ -309,7 +309,75 @@
   font-weight: 600;
 }
 
-/* Responsive helpers (fallback if Bootstrap utilities absent) */
+/* ==========================================================================
+   Mobile toggle (hamburger) - Style Untree.co
+   ========================================================================== */
+
+.elegant-navbar__toggle {
+  display: inline-block;
+  width: 28px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 99;
+}
+
+/* Membuat 3 garis burger */
+.elegant-navbar__toggle:before,
+.elegant-navbar__toggle span,
+.elegant-navbar__toggle:after {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background: var(--nav-text-strong); /* Warna putih sesuai teks navbar */
+  border-radius: 2px;
+  position: absolute;
+  opacity: 1;
+}
+
+/* Menambahkan animasi transisi khas template style.css */
+.elegant-navbar__toggle:before,
+.elegant-navbar__toggle:after {
+  content: "";
+  transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), 
+              transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), 
+              opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Posisi awal garis */
+.elegant-navbar__toggle:before {
+  top: 6px;
+}
+
+.elegant-navbar__toggle span {
+  top: 15px;
+  transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.elegant-navbar__toggle:after {
+  top: 24px;
+}
+
+.elegant-navbar__toggle.is-active span {
+  opacity: 0;
+}
+
+.elegant-navbar__toggle.is-active:before,
+.elegant-navbar__toggle.is-active:after {
+  top: 15px;
+}
+
+.elegant-navbar__toggle.is-active:before {
+  transform: rotate(45deg);
+}
+
+.elegant-navbar__toggle.is-active:after {
+  transform: rotate(-45deg); 
+}
+
 @media (max-width: 991.98px) {
   .d-lg-flex,
   .d-lg-inline-flex,

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ProfilPerusahaanModel;
 
-class ProfilPerusahaan extends BaseController
+class ProfilPerusahaanController extends BaseController
 {
     protected $profilModel;
 
@@ -18,24 +18,23 @@ class ProfilPerusahaan extends BaseController
         $profil = $this->profilModel->first();
 
         $data = [
-            'title'  => 'Kelola Profil Perusahaan',
+            'title' => 'Kelola Profil Perusahaan',
             'profil' => $profil
         ];
 
-        return view('back/admin/profilperusahaan', $data);
+        return view('back/admin/kelola_profilperusahaan', $data);
     }
 
     public function save()
     {
-        // Aturan validasi inputan
         $rules = [
             'deskripsi_tentang' => 'required',
-            'teks_visi'         => 'required',
-            'teks_misi'         => 'required',
-            'alamat_kantor'     => 'required',
-            'jam_operasional'   => 'required',
-            'email_kantor'      => 'required|valid_email',
-            'telepon_kantor'    => 'required|max_length[50]'
+            'teks_visi' => 'required',
+            'teks_misi' => 'required',
+            'alamat_kantor' => 'required',
+            'jam_operasional' => 'required',
+            'email_kantor' => 'required|valid_email',
+            'telepon_kantor' => 'required|max_length[50]'
         ];
 
         if (!$this->validate($rules)) {
@@ -46,12 +45,12 @@ class ProfilPerusahaan extends BaseController
 
         $dataSave = [
             'deskripsi_tentang' => $this->request->getPost('deskripsi_tentang'),
-            'teks_visi'         => $this->request->getPost('teks_visi'),
-            'teks_misi'         => $this->request->getPost('teks_misi'),
-            'alamat_kantor'     => $this->request->getPost('alamat_kantor'),
-            'jam_operasional'   => $this->request->getPost('jam_operasional'),
-            'email_kantor'      => $this->request->getPost('email_kantor'),
-            'telepon_kantor'    => $this->request->getPost('telepon_kantor')
+            'teks_visi' => $this->request->getPost('teks_visi'),
+            'teks_misi' => $this->request->getPost('teks_misi'),
+            'alamat_kantor' => $this->request->getPost('alamat_kantor'),
+            'jam_operasional' => $this->request->getPost('jam_operasional'),
+            'email_kantor' => $this->request->getPost('email_kantor'),
+            'telepon_kantor' => $this->request->getPost('telepon_kantor')
         ];
 
         if ($profil) {

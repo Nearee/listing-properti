@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UlasanModel;
 
-class AdminUlasan extends BaseController
+class AdminUlasanController extends BaseController
 {
     protected $ulasanModel;
 
@@ -16,11 +16,11 @@ class AdminUlasan extends BaseController
     public function index()
     {
         $data = [
-            'title'  => 'Manajemen Ulasan Pengguna',
+            'title' => 'Manajemen Ulasan Pengguna',
             'ulasan' => $this->ulasanModel->orderBy('id', 'DESC')->findAll()
         ];
 
-        return view('back/admin/ulasan', $data);
+        return view('back/admin/kelola_ulasan', $data);
     }
 
     public function approve($id = null)
@@ -36,7 +36,6 @@ class AdminUlasan extends BaseController
         return redirect()->to('/admin/ulasan')->with('success', 'Ulasan berhasil disetujui dan akan tampil di Landing Page.');
     }
 
-    // Fungsi untuk menghapus ulasan
     public function delete($id = null)
     {
         $ulasan = $this->ulasanModel->find($id);

@@ -39,15 +39,8 @@
                 </p>
 
                 <h4 class="text-dark mb-3">Deskripsi Singkat</h4>
-                <p class="text-black-50">
-                    Properti <strong><?= esc($properti['nama_properti']) ?></strong> ini adalah pilihan tepat untuk
-                    hunian impian Anda. Menawarkan kenyamanan dan desain modern dengan fasilitas yang mendukung gaya
-                    hidup keluarga masa kini.
-                </p>
-                <p class="text-black-50">
-                    Dengan spesifikasi bangunan berkualitas dan tata ruang yang dioptimalkan, properti bertipe
-                    <?= esc($properti['kategori_tampil']) ?> ini memastikan pencahayaan serta sirkulasi udara yang baik
-                    ke seluruh sudut rumah.
+                <p class="text-black-50" style="white-space: pre-line;">
+                    <?= esc($properti['deskripsi'] ?? 'Deskripsi properti belum ditambahkan.') ?>
                 </p>
             </div>
 
@@ -70,14 +63,6 @@
                         <span class="text-black-50"><i class="icon-bath me-2"></i> Kamar Mandi</span>
                         <strong class="text-dark"><?= esc($properti['kamar_mandi']) ?> Ruangan</strong>
                     </div>
-
-                    <?php
-                    $pesan_wa = "Halo, saya tertarik dan ingin menanyakan informasi lebih lanjut mengenai properti: " . esc($properti['nama_properti']) . " (Tipe " . esc($properti['kategori_tampil']) . ").";
-                    ?>
-                    <a href="https://wa.me/6281234567890?text=<?= urlencode($pesan_wa) ?>" target="_blank"
-                        class="btn btn-primary w-100 py-3 mb-2 rounded-pill fw-bold shadow-sm">
-                        <i class="icon-whatsapp me-2"></i> Hubungi Agen (WhatsApp)
-                    </a>
 
                     <a href="<?= base_url('/') ?>" class="btn btn-outline-secondary w-100 py-3 rounded-pill fw-bold">
                         Kembali ke Beranda

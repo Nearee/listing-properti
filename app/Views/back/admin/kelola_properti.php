@@ -15,12 +15,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body text-dark">
-                        <?= session()->getFlashdata('success') ?>
+                    <?= session()->getFlashdata('success') ?>
                 </div>
             </div>
         </div>
         <script src="<?= base_url('assets/js/notifikasi.js') ?>"></script>
-        <?php endif; ?>
+    <?php endif; ?>
 
     <?php if (session()->getFlashdata('errors')): ?>
         <div class="alert alert-danger alert-dismissible show fade">
@@ -147,6 +147,12 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
+                                                    <label>Deskripsi</label>
+                                                    <textarea class="form-control" name="deskripsi" rows="3"
+                                                        placeholder="Deskripsi properti (Opsional)"><?= esc($item['deskripsi']) ?></textarea>
+                                                </div>
+
+                                                <div class="form-group mb-3">
                                                     <label>Harga Properti (Angka saja)</label>
                                                     <input type="number" class="form-control" name="harga"
                                                         value="<?= esc($item['harga']) ?>" required min="0">
@@ -248,6 +254,12 @@
                             <input type="text" class="form-control" name="nomor_rumah" value="<?= old('nomor_rumah') ?>"
                                 placeholder="Misal: A1-10" required maxlength="20">
                         </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" rows="3"
+                            placeholder="Deskripsi properti (Opsional)"><?= old('deskripsi') ?></textarea>
                     </div>
 
                     <div class="form-group mb-3">

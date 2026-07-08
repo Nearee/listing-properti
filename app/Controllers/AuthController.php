@@ -62,17 +62,15 @@ class AuthController extends BaseController
         $userModel = new UserModel();
         $user = $userModel->where('username', $username)->first();
 
-        // Validasi ketersediaan user dan kecocokan password
         if (!$user || !password_verify($password, $user['password'])) {
             return redirect()->back()->withInput()->with('error', 'Username atau password salah.');
         }
 
-        // Simpan data ke dalam Session
         $sessionData = [
             'isLoggedIn' => true,
-            'user_id'    => $user['id'],
-            'username'   => $user['username'],
-            'role'       => $user['role']
+            'user_id' => $user['id'],
+            'username' => $user['username'],
+            'role' => $user['role']
         ];
         session()->set($sessionData);
 
