@@ -108,36 +108,6 @@
     </div>
 </div>
 
-<div class="section">
-    <div class="container">
-        <div class="row section-counter mt-5">
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">12</span></span>
-                    <span class="caption text-black-50"># of Buy Properties</span>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">12</span></span>
-                    <span class="caption text-black-50"># of Sell Properties</span>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-                <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">24</span></span>
-                    <span class="caption text-black-50"># of All Properties</span>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-                <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">3</span></span>
-                    <span class="caption text-black-50"># of Agents</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="section sec-testimonials bg-light">
     <div class="container">

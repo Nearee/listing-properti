@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/fonts/icomoon/style.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/fonts/flaticon/font/flaticon.css') ?>" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="<?= base_url('assets/css/tiny-slider.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/css/aos.css') ?>" />
@@ -29,14 +30,6 @@
 </head>
 
 <body>
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close">
-                <span class="icon-close js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
 
     <?= $this->include('layout/navbar') ?>
 

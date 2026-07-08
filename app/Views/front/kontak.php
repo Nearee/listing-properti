@@ -121,40 +121,70 @@
 <?php if (!empty($lokasi)): ?>
     <div class="section pt-0">
         <div class="container">
-            <div class="row" data-aos="fade-up">
-                <div class="col-12 mb-4">
-                    <h2 class="font-weight-bold heading text-primary">Lokasi Kami</h2>
-                    <p class="text-black-50">Temukan kami di lokasi berikut. Klik ikon untuk membuka di Google Maps.</p>
+            <div class="row mb-5 justify-content-center text-center" data-aos="fade-up">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="font-weight-bold heading text-primary mb-3">Lokasi Kami</h2>
+                    <p class="text-black-50">Kunjungi lokasi proyek dan kantor pemasaran kami. Dapatkan petunjuk arah secara
+                        langsung melalui Google Maps.</p>
                 </div>
             </div>
 
             <?php foreach ($lokasi as $loc): ?>
-                <div class="row mb-5" data-aos="fade-up">
-                    <div class="col-lg-4 mb-4 mb-lg-0 d-flex align-items-center">
-                        <div class="p-4 border rounded-3 shadow-sm w-100 bg-white">
-                            <h5 class="text-primary fw-bold mb-2">
-                                <i class="icon-room me-2"></i><?= esc($loc['nama_lokasi']) ?>
-                            </h5>
-                            <p class="text-black-50 mb-3"><?= nl2br(esc($loc['alamat_lengkap'])) ?></p>
+                <div class="row mb-5 align-items-stretch" data-aos="fade-up">
+
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div
+                            class="p-4 p-lg-5 border rounded-3 shadow-sm h-100 bg-white d-flex flex-column justify-content-center">
+
+                            <div class="d-flex align-items-start">
+
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
+                                        style="width: 50px; height: 50px; background-color: #0b2239;"> <i
+                                            class="icon-room fs-4"></i>
+                                    </div>
+                                </div>
+
+                                <div class="flex-grow-1 text-start">
+                                    <h5 class="fw-bold mb-2 text-dark">
+                                        <?= esc($loc['nama_lokasi']) ?>
+                                    </h5>
+                                    <p class="text-black-50 mb-0" style="line-height: 1.6; font-size: 0.95rem;">
+                                        <?= nl2br(esc($loc['alamat_lengkap'])) ?>
+                                    </p>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
+
                     <div class="col-lg-8">
                         <?php if (!empty($loc['link_gmaps'])): ?>
-                            <div class="rounded-3 overflow-hidden shadow-sm" style="height: 320px;">
-                                <iframe src="<?= esc($loc['link_gmaps']) ?>" width="100%" height="100%" style="border:0;"
+                            <div class="rounded-4 overflow-hidden shadow h-100 w-100 position-relative bg-light"
+                                style="min-height: 400px;">
+                                <iframe src="<?= esc($loc['link_gmaps']) ?>"
+                                    style="border:0; position: absolute; top:0; left:0; width: 100%; height: 100%;"
                                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                                     title="Peta lokasi <?= esc($loc['nama_lokasi']) ?>">
                                 </iframe>
                             </div>
                         <?php else: ?>
-                            <div
-                                class="p-5 text-center bg-light rounded-3 h-100 d-flex align-items-center justify-content-center shadow-sm">
-                                <p class="text-muted mb-0"><i class="icon-map-marker me-2"></i>Peta belum ditambahkan</p>
+                            <div class="p-5 text-center bg-light rounded-4 h-100 d-flex flex-column align-items-center justify-content-center shadow-sm"
+                                style="min-height: 400px; border: 2px dashed #dee2e6;">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 bg-white shadow-sm"
+                                    style="width: 70px; height: 70px;">
+                                    <i class="icon-map-marker text-muted fs-2"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Peta Belum Ditambahkan</h5>
+                                <p class="text-muted small mb-0">Link sematan Google Maps untuk lokasi ini belum dikonfigurasi.</p>
                             </div>
                         <?php endif; ?>
                     </div>
+
                 </div>
             <?php endforeach; ?>
+
         </div>
     </div>
 <?php endif; ?>
