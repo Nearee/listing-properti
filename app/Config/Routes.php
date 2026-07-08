@@ -12,8 +12,8 @@ $routes->get('/services', 'Home::services');
 $routes->get('/properties', 'Home::properti');
 $routes->get('/property-single/(:num)', 'Home::propertySingle/$1');
 
-$routes->get('/beri-ulasan', 'Ulasan::index');
-$routes->post('/simpan-ulasan', 'Ulasan::store');
+$routes->get('/beri-ulasan', 'UlasanController::index');
+$routes->post('/simpan-ulasan', 'UlasanController::store');
 $routes->post('kontak/kirim', 'Home::kirim');
 
 // Auth
@@ -79,7 +79,7 @@ $routes->group('', ['filter' => 'role:admin'], function ($routes) {
     $routes->delete('/properti/delete/(:num)', 'PropertiController::delete/$1');
 });
 
-// Rute Allowed for Admin and User
+// Rute Admin and User
 $routes->group('', ['filter' => 'role:admin,user'], function ($routes) {
     $routes->get('/pengaturan', 'DashboardController::Pengaturan');
 });

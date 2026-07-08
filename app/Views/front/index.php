@@ -50,33 +50,6 @@
     <script src="<?= base_url('assets/js/navbar.js') ?>"></script>
     <script src="<?= base_url('assets/js/counter.js') ?>"></script>
     <script src="<?= base_url('assets/js/custom.js') ?>"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById('searchInput');
-            const searchForm = document.querySelector('.form-search');
-            function filterProperties() {
-                let filter = searchInput.value.toUpperCase();
-                let cards = document.querySelectorAll('.property-item');
-
-                cards.forEach(card => {
-                    let title = card.querySelector('h3') ? card.querySelector('h3').innerText : "";
-                    let location = card.querySelector('.city') ? card.querySelector('.city').innerText : "";
-
-                    if (title.toUpperCase().indexOf(filter) > -1 || location.toUpperCase().indexOf(filter) > -1) {
-                        card.parentElement.style.display = ""; // Sembunyikan kolom (col-6/col-4) agar layout tidak berantakan
-                    } else {
-                        card.parentElement.style.display = "none";
-                    }
-                });
-            }
-            searchInput.addEventListener('keyup', filterProperties);
-            searchForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                filterProperties();
-            });
-        });
-    </script>
 </body>
 
 </html>

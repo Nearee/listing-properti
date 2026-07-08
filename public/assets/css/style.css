@@ -12214,6 +12214,59 @@ body {
     -webkit-box-shadow 0.35s ease;
   transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
 }
+
+.site-navigation .logo {
+    color: #004040 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.5px !important;
+    font-size: 1.35rem !important;
+    line-height: 40px !important; /* Menyamakan tinggi logo dengan menu */
+}
+
+.site-navigation::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.site-menu > li > a {
+    color: #4a5568 !important; /* Warna teks abu-abu gelap modern */
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 15px !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.site-menu > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background-color: #005555; /* Warna hijau aksen template */
+    transition: width 0.3s ease-in-out;
+}
+
+.site-menu > li:hover > a,
+.site-menu > li.active > a {
+    color: #005555 !important; /* Berubah ke warna aksen */
+}
+
+.site-menu > li:hover > a::after,
+.site-menu > li.active > a::after {
+    width: calc(100% - 30px);
+}
+
+.site-menu li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .site-nav.scrolled {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -12774,7 +12827,7 @@ body {
 .burger.light:before,
 .burger.light span,
 .burger.light:after {
-  background: #fff;
+  background: #0b2239 !important;
 }
 
 .burger:before,
@@ -12967,14 +13020,15 @@ textarea {
 }
 
 .menu-bg-wrap {
-  background-color: #005555;
-  padding: 20px 30px;
-  position: relative;
-  float: left;
-  width: 100%;
-  border-radius: 7px;
-  -webkit-box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.92) !important; 
+    opacity: 70%;
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 100px !important; 
+    padding: 15px 35px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; /* Bayangan halus/soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.3s ease-in-out;
 }
 
 .hero {

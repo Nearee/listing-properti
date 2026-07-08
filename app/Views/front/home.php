@@ -23,9 +23,6 @@
                     Kami menyediakan berbagai pilihan properti terbaik yang disesuaikan dengan kebutuhan, kenyamanan,
                     dan gaya hidup Anda.
                 </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    <a href="#properti-section" class="btn btn-primary py-3 px-5 fw-bold">Eksplorasi Properti</a>
-                </p>
             </div>
         </div>
     </div>
@@ -289,25 +286,25 @@
         <div class="row section-counter mt-5">
             <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                 <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">666</span></span>
+                    <span class="number"><span class="countup text-primary">6</span></span>
                     <span class="caption text-black-50">Properti Dijual</span>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                 <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">666</span></span>
+                    <span class="number"><span class="countup text-primary">6</span></span>
                     <span class="caption text-black-50">Properti Disewakan</span>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
                 <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">666</span></span>
+                    <span class="number"><span class="countup text-primary">6</span></span>
                     <span class="caption text-black-50">Total Listing Properti</span>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
                 <div class="counter-wrap mb-5 mb-lg-0">
-                    <span class="number"><span class="countup text-primary">666</span></span>
+                    <span class="number"><span class="countup text-primary">6</span></span>
                     <span class="caption text-black-50">Agen Terverifikasi</span>
                 </div>
             </div>
