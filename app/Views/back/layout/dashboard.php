@@ -39,7 +39,7 @@
                         <p>2026 &copy;</p>
                     </div>
                     <div class="float-end">
-                        <p><span class="text-danger"><i class="bi bi-diamond"></i> </span><a>Taka</a></p>
+                        <p><span class="text-danger"><i class="bi bi-diamond"></i> </span><a>Pub</a></p>
                     </div>
                 </div>
             </footer>
